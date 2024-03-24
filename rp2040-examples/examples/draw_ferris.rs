@@ -86,7 +86,7 @@ fn main() -> ! {
     let _spi_sclk = pins.gpio6.into_mode::<hal::gpio::FunctionSpi>();
     let _spi_mosi = pins.gpio7.into_mode::<hal::gpio::FunctionSpi>();
     let _spi_miso = pins.gpio4.into_mode::<hal::gpio::FunctionSpi>();
-    let spi = hal::Spi::<_, _, 8>::new(pac.SPI0);
+    let spi = hal::Spi::<_, _, _, 8>::new(pac.SPI0, pins);
 
     let mut lcd_led = pins.gpio12.into_push_pull_output();
     let dc = pins.gpio13.into_push_pull_output();
